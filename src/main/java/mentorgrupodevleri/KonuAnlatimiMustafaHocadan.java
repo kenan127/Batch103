@@ -358,3 +358,96 @@ public class KonuAnlatimiMustafaHocadan {
 
       ==>NOTTT: METHODLAR SECILIRKEN JAVA COSTRUCTORA BAKAR; VARIABLESLER SECILIRKEN JAVA DATA TIPINE BAKAR <==========
          */
+
+  /*
+            ===========> EXCEPTION  <============
+    EXCEPTION: (istisnai hata) javada kodlarimizi calistirirken meydana gelen beklenmedik durumlardir.
+
+    EXCEPTION'lar ile calismanin iki yolu vardir:
+
+    1)try=cath kullanarak exception olussa bile calismayi devam ettirme (genel olarak bu yontem kullanilir)
+
+    2) throw exception kullanarak calismayi durdurma (mesela kod geregi bir dosya uzerinden okum yapmamiz gerekiyor ise
+     bu dosyamiz eger silinmis ise java dosyayi bulamaz ve uygulamanin devam etmesi gerekmez)
+
+    3) Eger EXCEPTION'i handle etmezsek (sorunu halletmezsek) java calismayi durdurur
+
+    4) try=catch kullanilirken try kodunu bir ya da birden fazla catch ile birlikte kullanabiliriz
+
+    5) try, catch olmaksizin kullanilamaz
+
+    6) eger yazmis oldugumuz herhangi bir kod satirinda problem olabilecegini dusunuyorsak try-catch blok icine koymaliyiz
+
+    7) catch blok parantezi icerisine olasi muhtemel exception clas ismi yazilir
+
+    8) e/getmessage(), metodunu kullanarak teknik mesajlar elde edebiliriz
+        System.out.println(); Buraya yazmis oldugum mesajlar benim yazdigim teknik olmayan mesajlardir
+        e.printStackTrace(); metodu Exception ile ilgili detaylica teknik mesaj verir, kod calismaya devam eder.
+        System.err.println(); Hata mesajini renkli olarak verir bu sayede cansolda diger mesajlardan ayırmak icin kullaniriz
+
+      9)Eger try body icindeki kod sorunusuz calisirsa catch blok devreye girmez
+
+      NOT: e.printStackTrace(); methodu kullanildiginda ayrica 'sout' yapmak gerekmez. Cunku bu method  zaten
+                            consola otomatik olarak yazdirir
+    NOT: Herhangi bir satirda 'Exception' atilirsa direkt 'catch' bolumune gecer 'try' bolumu icindeki kodlari calistirmaz
+
+                    ==========> RUN TIME EXCEPTIONLAR (UNCHECKED EXCEPTION) <============
+
+  1)  NumberFormatException: Eger icinde rakamdan farkli character barindiran bir String'i valueOf() kullanarak Integer'a cevirmek
+                            isterseniz NumberFormatException alirsiniz
+
+   2)StringIndexOutOfBoundsException: Eger bir String'den character/ler alirken olmayan bir index kullanilirsa
+                                    StringIndexOutOfBoundsException alinir.
+
+  3)IllegalArgumentException(); //uygun olmayan deger hatasi demektir
+
+  4)  "ArithmeticException"    Java matematik ile ilgili karsilasilabilecek muhtemel tum istisnalari, hatalari "ArithmeticException" classina koymustur.
+                                MAtematikteki tum istisnalari detaylari bilmek zorunda degilim.
+                                ArithmeticException AYNI ZAMANDA BIR DATA TIPIDIR
+
+  5) NullPointerException: eger lenght() methodunda null atarsam: NullPointerException hatasi  alirim. null:hukumsuz demektir
+
+                                 ==============> NOTLAR <==========
+    1)log (akisi takip etmek demektir, aplication'unun adim adim neler yaptigini,  hatanin adim adim nasil olustugunu gosterir)
+          icin.INTERWIEW SOURUSU (Hatyi gorunce ne  yaparsiniz? Hata raporuna, log kayitlarina bakarim
+
+
+    2): javada int bir deger int bir degere bolunurse bunu double conteinere koysaniz bile sonuc int bir tam sayi olur
+        ORN: 124/3= 41,33 DEGIL 41.0 OLARAK ALINIR
+
+   3) Javada ilk exception atildiginda diger catch'lar calismaz. Cunku arabanin lastigi patlayinca seyahat etmeye devam edemezsiniz
+        O yuzden sadece bir catch calisir
+
+   4) Butun exceptionlar icin sadece bir tane catch icinde catch(Exception e) yazilirsa bu butun durumlar icin 112'yi ara demek gibidir.
+        Cunku Javada butun Exceptionlerin parent classi 'Exception' classidir. burada alinan hata javanin Exception
+         parent classina gonderilir ve parent class o hatanin hangi child classta olduguna karar verip o classtaki hata mesajini
+         yazdirir. Bu kod yazimi kisadir ama okunmasi zordur. Uzun olan kodun da okunmasi kolaydir ve butun exceptionlar
+         icin ayri ayri  uygulamalar yapabilme sansim vardir. Eger requirement documentte bu hatalari ayri ayri yazdirmamiz
+         isteniyorsa uzun olan kodu yazariz. Ayri ayri uygulamam yapmam istenmezse kisa kodu yazarim
+
+   5)Unreachable Code: Ulasilamaz kod demektir
+
+   6)
+    1) Aralarinda parent-child relationship olan Exception Class'lari multiple catch'lerde kullanmak isterseniz 'child'
+        olan once kullanilmalisir, aksi takdirde hata verir.
+    2) Aralarinda parent-child relationship olmayan Exception Class'lari multiple catch'lerde kullanmak isterseniz
+        aralarindaki siralamanin onemi yoktur
+
+
+   7) YANLIS DATA KULLANIMLARINDA BIZ PROBLEMLERI IF-ELSE ILE COZMEYIZ BUNUN YERINE try-catch KULLANIRIZ.
+        cunku bankamatikte yanlis sifre girince bile islemlere devam etmek geri dob=nulmez hatalara sebep olabilir
+
+   8)Aplicationlari articherler dizayn ederken kurallari (trafik isiklari gibi) belirler ve hangi durumlarda exceptiona
+        atmasi gerektigini, hangi durumlarda kodun calismayi durdurmasi gerektigini  developerler de ona gore kod yazarlar
+        Farzlari ve vacipleri articherler belirler digerleri ona gore kod yazarlar
+
+   9):Javada exceptionalarin varligi cok onemli bizim hangi alanda top oynayacagimizi gosterir. BAzi durumlarda da ben
+        Exception yazabilirim
+
+    10)MEthodun icinde exception uretme= mimarlar aplicationlarla ilglili kurallar olustururlar bu kurallari exceptionlarin icine
+    koyarlar
+    bazen gunluk hayatta yanlis olan seyler java icin yanlis olmayabilir (mesela yasin negatif olmasi gunluk hayatta
+    mumkun degil ama javada gore mumkundur
+
+            Arıthmetıc, NullPointer, ArrayIndexOutOfBound, StringIndexOutofBound, NumberFormat
+     */

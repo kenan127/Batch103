@@ -1,6 +1,5 @@
 package mentorgrupodevleri;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class SoruListesi {
@@ -1144,15 +1143,17 @@ public class SoruListesi {
 //9) String içindeki tüm küçük harfleri yıldız işaretiyle yazdırmak için gereken kodu yazınız.
 //Örneğin; 'Ali Can?' ==> l*i*a*n*
 //
-        String str = "Ali Can";
-
-        String bos = "";
-        for (int i = 0; i < str.length(); i++) {
-            if (str.substring(i,i+1)=="A"){
-                bos = bos + i;
-            }
-            System.out.println(bos);
-             }
+//        String str = "Ali Can";
+//        String yenistr = str.replaceAll("[^a-z]","");
+//        System.out.println(yenistr);
+//
+//        String bos = "";
+//        for (int i = 0; i < yenistr.length(); i++) {
+//                String c  = yenistr.substring(i,i+1);
+//                bos = bos + c + "*";
+//            }
+//            System.out.println(bos);
+//             }
 
 
 
@@ -1162,31 +1163,123 @@ public class SoruListesi {
 //işaretiyle yazdırmak için gereken kodu yazınız.
 //Örneğin; 75.4238 ´ *4*2*3*8
 //
+//    double sayi = 75.4238;
+//    String say = Double.toString(sayi);
+//   int dotidx = say.indexOf(".");
+//   String sayi2 = say.substring(dotidx + 1);
+//        System.out.println(sayi2);
+//        String t = "";
+//
+//        for (int i = 0; i < sayi2.length(); i++) {
+//           String x = sayi2.substring(i,i+1);
+//            t = t+x+"*" ;
+//        }
+//        System.out.println(t);
+
+
+
 //11) Bir String' i tersine çevirmek için kod yazınız. Örnek; Mark ==> kraM
 //
+//        String str = "Mark";
+//        String bos = "";
+//        for (int i = str.length(); i > 0 ; i--) {
+//            String c = str.substring(i-1,i);
+//            bos = bos + c;
+//        }
+//        System.out.println(bos);
+
 //12) Aşağıdaki görüntüyü bir for döngüsü kullanarak elde eden kodu yazınız.
 //A A A A A A A A
 //A X X X X X X A
 //A X X X X X X A
 //A X X X X X X A
 //
+
+
 //13) 3 ile 14 arasındaki tam sayıların toplamını bulmak için kodu yazınız.
 //
+//
+//        int toplam = 0;
+
+//        for (int i=3; i<15; i++){
+//            toplam+=i;
+//        }
+//        System.out.println(toplam);
+//        int sayi=15;
+//        int i=3;
+//        while (i<sayi){
+//            toplam=i+toplam;
+//            i++;
+//        }
+//        System.out.println(toplam);
 //14) 3 ile 9 arasındaki tam sayıların çarpımını bulmak için kodu yazınız.
 //
+//
+//        int carpim = 1;
+//        for (int i=3; i<10; i++){
+//            carpim*=i;
+//        }
+//        System.out.println(carpim);
 //15) Do-while döngüsünü kullanarak konsolda 'C' ile 'A' arasındaki karakterleri yazdırmak için
 //kod yazınız.
 //
+//
+//        char karakter = 'C';
+//        do {
+//            System.out.print(karakter);
+//            karakter--;
+//        }while (karakter>='A');
+
 //16) Bir String de, ilk 'm' karakterinden önceki tüm karakterleri yazınız.
+//
+//        String s = "Christmas";
+//        String result = "";
+//        int i = 0;
+//
+//       do { String c = s.substring(i, i+1);
+//           if (c.equals("m")){
+//               break;
+//           }
+//        result = result + c;
+//           i++;
+//
+//       }while (i<s.length());
+//        System.out.println(result);
+
+
+
 //
 //17) Bir tamsayıdaki rakamların toplamını bulmak için kodu yazınız.
 //
+//
+//        int tamsayi = 12346;
+//            int basamakdegeritoplami=0;
+//        for (int i=tamsayi; i>0; i=i/10){
+//            basamakdegeritoplami = basamakdegeritoplami + i%10;
+//        }
+//        System.out.println(basamakdegeritoplami);
 //18) Bir String' de benzersiz(tekrarsız) karakterler yazdırmak için kod yazınız.
 //Örneğin; Hello ==> Heo
 //
+//        String str = "Hello";
+//        String bos = "";
+//        for (int i=0; i<str.length(); i++){
+//            String c = str.substring(i,i+1);
+//            if (str.indexOf(c)==str.lastIndexOf(c)){
+//                bos = bos + c;
+//            }
+//        }
+//        System.out.println(bos);
 //19) Bir String' deki boşluk ve noktalama işaretleri dışındaki toplam karakter sayısını bulunuz.
 //String s = "Java is a strongly typed, object-oriented programming language.";
-//
+////
+//        String x = s.trim().replaceAll(" ","").replaceAll("\\p{Punct}","");
+//        System.out.println(x);
+//        int toplam=0;
+//        for (int i=0; i<x.length();i++){
+//            toplam++;
+//        }
+//        System.out.println(toplam);
 //20) Aşağıdaki görüntüyü bir for döngüsü kullanarak elde eden kodu yazınız.
 //* * * * * *
 //* * * * *
@@ -1195,20 +1288,84 @@ public class SoruListesi {
 //* *
 //*
 //
+//        for (int i=0; i<7; i++){
+//            System.out.print("*");
+//            for (int j=6; j>i; j--){
+//                System.out.print("*");
+//            }
+//        }
 //21) Bir tamsayının benzersiz(tekrarsız) basamaklarının toplamını bulmak için kodu yazınız.
 //Örnek:12133455 ´ 2+4=6
 //
+//        int sayi = 12133455;
+//        String toplam = "";
+//        String s = String.valueOf(sayi);
+//         for (int i=0; i<s.length(); i++){
+//            String c= s.substring(i,i+1);
+//            if (s.indexOf(c)==s.lastIndexOf(c)){
+//                toplam+=c;
+//            }
+//         }
+//        System.out.println(toplam);
+//
 //22) 5 hariç 3'ten 9'a kadar olan tam sayıları yazdırmak için kod yazınız.
 //
+
+//        for (int i=3; i<10; i++){
+//            if (i==5){
+//                continue;
+//            }
+//            System.out.print(i + " ");
+//        }
+
 //23) Asal sayı olup olmadığını kontrol etmek için kullanıcıdan bir tam sayı girmesini isteyiniz.
 //Örnek: kullanıcı 43 girerse çıktı "43 bir asal sayıdır", kullanıcı 120 girerse "120 asal değildir"
 //olur, kullanıcı negatif tam sayılar girerse çıktı "Pozitif bir tam sayı giriniz" şeklinde kullanıcıyı
 //yönlendiriniz.
 //
+        Scanner scan = new Scanner(System.in);
+        System.out.println("pozitif bir tamsayi giriniz: ");
+        int number = scan.nextInt();
+        int count = 0;
+
+
+//        if(number>0) {
+//            if (number == 1) {
+//                System.out.println(number + " bir asal sayidir");
+//            }else {
+//                for(int i=2; i<number; i++) {
+//                    if(number%i==0) {
+//                        count++;
+//                    }
+//                }
+//                if(count==0) {
+//                    System.out.println(number + " bir asal sayidir ");
+//                }else {
+//                    System.out.println(number + " bir asal sayi degildir ");
+//                }
+//            }
+//        }else {
+//            System.out.println("Pozitif bir tam sayi giriniz ");
+//        }
+
 //24) Kullanıcıya kaç tane fibonacci sayısı görmek istediğini sorunuz. Ardından bu fibonacci
 //sayılarını yazdıran kodu yazınız.
 //Örnek: kullanıcı 6 girerse çıktı 1 1 2 3 5 8 olacaktır.
 //
+//        Scanner scan = new Scanner(System.in);
+//        System.out.println("Kac tane fibonacci sayisi gormek istiyorsunuz ?");
+//        int number = scan.nextInt();
+//        int fibo1 = 1;
+//        int fibo2 = 1;
+//        int fibonacci = 0;
+//        System.out.print(fibo1 + " ");
+//        System.out.print(fibo2 + " ");
+//        for (int i = 1; i < number-1; i++) {
+//            fibonacci = fibo1 + fibo2;
+//            fibo1 = fibo2;
+//            fibo2 = fibonacci;
+//            System.out.print(fibonacci + " ");
+//        }
 //25) Bir sayı, her basamağının küpünün toplamına eşitse Armstrong sayısı olarak adlandırılır.
 //Örneğin, 153, her basamağın küpüne eşit olan 153= 1 + 125 + 27 olduğundan bir
 //Armstrong sayısıdır. Verilen numaranın Armstrong sayısı olup olmadığını kontrol etmek
@@ -1294,5 +1451,4 @@ konsola "Anagramdır" yazdırın. Aksi takdirde, konsolda "Anagram Değil" yazd�
    */
 
 
-    }
-}
+    }}
